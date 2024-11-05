@@ -1,0 +1,69 @@
+targets:
+  $default:
+    builders:
+      injectable_generator:injectable_config_builder:
+        generate_for:
+          include:
+            - lib/injection/**.dart
+      injectable_generator:injectable_builder:
+        generate_for:
+          include:
+            - lib/injection/**.dart
+            # Core
+            - lib/core/debug/debug_console_app_logger.dart
+            - lib/core/managers/**_manager.dart
+            # Data
+            - lib/data/data_sources/**/**_http_data_source.dart
+            - lib/data/services/**/**_service_impl.dart
+            - lib/data/remappers/**/**_remapper.dart
+            - lib/data/api/**_interceptor.dart
+            - lib/data/**_config.dart
+            - lib/data/preferences/**_preferences.dart
+            - lib/data/preferences/**_storage.dart
+              # Change Notifiers
+            - lib/data/notifiers/**/**_notifier.dart
+            # Domain
+            - lib/domain/use_cases/**/**_use_case.dart
+            # Presentation
+            - lib/presentation/features/**/bloc/**_cubit.dart
+            - lib/presentation/features/**/bloc/**_notifier.dart
+            - lib/presentation/routes/**_route_guard.dart
+      retrofit_generator:
+        generate_for:
+          include:
+            - lib/data/data_sources/**/**_http_data_source.dart
+      auto_route_generator:
+        generate_for:
+          include:
+            - lib/presentation/routes/**
+            - lib/presentation/features/**/**_screen.dart
+            # For sub-features
+            - lib/presentation/features/**/**/**_screen.dart
+      json_serializable:
+        options:
+          explicit_to_json: true
+        generate_for:
+          include:
+            # Data
+            - lib/data/dto/**/**_dto.dart
+            - lib/data/**/**_exception.dart
+            - lib/data/dto/**/**_response.dart
+            - lib/data/models/**/**_request.dart
+            - lib/data/errors/api_error.dart
+      freezed:freezed:
+        generate_for:
+          include:
+            # Data
+            - lib/data/dto/**/**_dto.dart
+            - lib/data/**/**_exception.dart
+            - lib/data/dto/**/**_response.dart
+            - lib/data/models/**/**_request.dart
+            - lib/data/errors/api_error.dart
+            - lib/data/errors/response_error.dart
+            - lib/data/api/base_status.dart
+              # Change Notification
+            - lib/data/notifiers/**/**_notification.dart
+            # Domain
+            - lib/domain/entities/**/**_entity.dart
+            # Presentation
+            - lib/presentation/features/**/bloc/**_state.dart
