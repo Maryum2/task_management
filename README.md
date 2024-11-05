@@ -15,6 +15,7 @@ The application follows a three-tier structure based on Clean Architecture princ
 
 1. Data Layer
 The Data Layer is responsible for data management. It handles data retrieval, storage, and network communication. This layer interacts with various data sources, such as local databases, remote APIs, or any other external services. Key components include:
+
 Services Implementation: Abstract the data sources and provide a unified interface for data access.
 Data Sources: Implementations for fetching data from different sources (e.g., REST API, local database).
 
